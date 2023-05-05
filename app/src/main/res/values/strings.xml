@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">EasyCommerce</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="rightAddress">The Right Address\nFor Shopping\nAnyday</string>
+    <string name="quality">it is now very easy to reach the\nbest quality among the\nproducts on the internet!</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="tvAppName">Klein.</string>
+    <string name="letsLogin">Let\'s Login</string>
+    <string name="dontHaveAccount">Don\'t have account? Register</string>
+    <string name="etEmailHint">Email</string>
+    <string name="etPasswordHint">Password</string>
+    <string name="forgotPassword">Forgot Password</string>
+    <string name="facebook">Facebook</string>
+    <string name="google">Google</string>
+    <string name="letsRegister">Let\'s Register</string>
+    <string name="donYouHaveAccount">Do you have an account? log in</string>
+    <string name="etFirstNameHint">First Name</string>
+    <string name="etLastNameHint">Last Name</string>
+    <string name="resetPassword">Reset Password</string>
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tvRightAddressMargin">115dp</dimen>
+    <dimen name="tvQualityMargin">15dp</dimen>
+    <dimen name="smallButtonWidth">120dp</dimen>
+    <dimen name="smallButtonHeight">55dp</dimen>
+    <dimen name="buttonCorners">5dp</dimen>
+    <dimen name="mediumButtonWidth">200dp</dimen>
+    <dimen name="mediumButtonHeight">55dp</dimen>
+    <dimen name="tvAppNameMargin">120dp</dimen>
+    <dimen name="tvRightAddressForShoppingMargin">45dp</dimen>
+    <dimen name="buttonLoginAccountOptionsMargin">10dp</dimen>
+    <dimen name="tvAppNameMargin1">110dp</dimen>
+    <dimen name="tvRightAddressForShoppingMargin1">15dp</dimen>
+    <dimen name="editTextHeight">60dp</dimen>
+    <dimen name="etEmailMargin">15dp</dimen>
+    <dimen name="buttonLogin">15dp</dimen>
+    <dimen name="tvAppNameMargin2">55dp</dimen>
+    <dimen name="etFirstNameMargin">30dp</dimen>
+</resources>
