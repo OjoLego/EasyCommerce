@@ -7,13 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.easycommerce.R
 import com.example.easycommerce.databinding.FragmentHomeCategoryBinding
 import com.example.easycommerce.util.Resource
+import com.example.easycommerce.util.showBottomNavigationView
 import com.example.easycommerce.view.adapter.BestDealsAdapter
 import com.example.easycommerce.view.adapter.BestProductAdapter
 import com.example.easycommerce.view.adapter.SpecialProductsAdapter
@@ -55,6 +58,22 @@ class HomeCategoryFragment : Fragment() {
 
         setUpBestProductsRv()
         bestProducts()
+
+        specialProductsAdapter.onClick = {
+            val b = Bundle().apply { putParcelable("product",it) }
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment,b)
+        }
+
+        bestDealsAdapter.onClick = {
+            val b = Bundle().apply { putParcelable("product",it) }
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment,b)
+        }
+
+        bestProductAdapter.onClick = {
+            val b = Bundle().apply { putParcelable("product",it) }
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment,b)
+        }
+
     }
 
     private fun bestProducts(){
@@ -62,21 +81,25 @@ class HomeCategoryFragment : Fragment() {
             viewModel.bestProducts.collectLatest {
                 when(it){
                     is Resource.Loading -> {
-                        showLoading()
+                        binding.bestProductProgressBar.visibility = View.VISIBLE
                     }
-                    is Resource.Success -> {
-                        bestProductAdapter.differ.submitList(it.data)
-                        hideLoading()
+                    is Resource.Success -> { bestProductAdapter.differ.submitList(it.data)
+                        binding.bestProductProgressBar.visibility = View.GONE
                     }
                     is Resource.Error -> {
-                        hideLoading()
                         Log.e(TAG,it.message.toString())
                         Toast.makeText(requireContext(),it.message, Toast.LENGTH_SHORT).show()
+                        binding.bestProductProgressBar.visibility = View.GONE
                     }
                     else -> Unit
                 }
             }
         }
+        binding.nestedScrollHomeCategory.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener{v,_,scrollY,_,_ ->
+            if (v.getChildAt(0).bottom <= v.height + scrollY){
+                viewModel.fetchBestProducts()
+            }
+        })
     }
 
     private fun setUpBestProductsRv() {
@@ -153,6 +176,12 @@ class HomeCategoryFragment : Fragment() {
 
     private fun showLoading() {
         binding.homeCategoryProgressBar.visibility = View.VISIBLE
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        showBottomNavigationView()
     }
 
 }

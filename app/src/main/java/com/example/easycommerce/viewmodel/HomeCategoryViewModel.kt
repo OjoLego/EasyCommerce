@@ -25,6 +25,8 @@ class HomeCategoryViewModel @Inject constructor(
     private val _bestProducts = MutableStateFlow<Resource<List<Product>>>(Resource.Unspecified())
     val bestProducts: StateFlow<Resource<List<Product>>> = _bestProducts
 
+    private val pagingInfo = PagingInfo()
+
     init {
         fetchSpecialProducts()
         fetchBestDeals()
@@ -61,18 +63,28 @@ class HomeCategoryViewModel @Inject constructor(
             }
     }
 
-    fun fetchBestProducts(){
+    fun fetchBestProducts() {
 
-        viewModelScope.launch { _bestProducts.emit(Resource.Loading()) }
+        if (!pagingInfo.isPagingEnd) {
+            viewModelScope.launch { _bestProducts.emit(Resource.Loading()) }
 
-        firestore.collection("Products").get()
-            .addOnSuccessListener { result ->
-                val bestProducts = result.toObjects(Product::class.java)
-                viewModelScope.launch { _bestProducts.emit(Resource.Success(bestProducts))}
-            }
-            .addOnFailureListener {
-                viewModelScope.launch {_bestProducts.emit(Resource.Error(it.message.toString())) }
-            }
+            firestore.collection("Products").limit(pagingInfo.bestProductsPage * 10).get()
+                .addOnSuccessListener { result ->
+                    val bestProducts = result.toObjects(Product::class.java)
+                    pagingInfo.isPagingEnd = bestProducts == pagingInfo.oldBestProduct
+                    pagingInfo.oldBestProduct = bestProducts
+                    viewModelScope.launch { _bestProducts.emit(Resource.Success(bestProducts)) }
+                }
+                .addOnFailureListener {
+                    viewModelScope.launch { _bestProducts.emit(Resource.Error(it.message.toString())) }
+                }
+            pagingInfo.bestProductsPage++
+        }
     }
+        internal data class PagingInfo(
+            var bestProductsPage: Long = 1,
+            var oldBestProduct: List<Product> = emptyList(),
+            var isPagingEnd: Boolean = false
+        )
 
 }
