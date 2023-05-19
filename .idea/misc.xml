@@ -13,10 +13,12 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/EasyCommerce/app/src/main/res/layout/activity_main.xml" value="0.253125" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/EasyCommerce/app/src/main/res/layout/activity_shopping.xml" value="0.2" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/EasyCommerce/app/src/main/res/layout/best_deals_rv_item.xml" value="0.1946624803767661" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/EasyCommerce/app/src/main/res/layout/cart_product_item.xml" value="0.2" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/EasyCommerce/app/src/main/res/layout/color_rv_item.xml" value="0.8" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/EasyCommerce/app/src/main/res/layout/fragment_accessory_category.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/EasyCommerce/app/src/main/res/layout/fragment_account_options.xml" value="0.264" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/EasyCommerce/app/src/main/res/layout/fragment_base_category.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/EasyCommerce/app/src/main/res/layout/fragment_cart.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/EasyCommerce/app/src/main/res/layout/fragment_chair_category.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/EasyCommerce/app/src/main/res/layout/fragment_cupboard_category.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/EasyCommerce/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
