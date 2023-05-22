@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.easycommerce.databinding.BestDealsRvItemBinding
 import com.example.easycommerce.databinding.ProductRvItemBinding
+import com.example.easycommerce.helper.getProductPrice
 import com.example.easycommerce.model.data.Product
 
 class BestProductAdapter(): RecyclerView.Adapter<BestProductAdapter.BestProductViewHolder>() {
@@ -19,15 +20,13 @@ class BestProductAdapter(): RecyclerView.Adapter<BestProductAdapter.BestProductV
 
         fun bind(product: Product){
             binding.apply {
-                Glide.with(itemView).load(product.images[0]).into(imageBestProductRvItem)
-                product.offerPercentage?.let {
-                    val remainingPricePercenteage = 1f - it
-                    val priceAfterOffer = remainingPricePercenteage * product.price
+                    val priceAfterOffer = product.offerPercentage.getProductPrice(product.price)
                     tvBestProductNewPrice.text = "$ ${String.format("%.2f",priceAfterOffer)}"
                     tvBestProductOldPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
-                }
                 if (product.offerPercentage == null)
                     tvBestProductNewPrice.visibility = View.INVISIBLE
+
+                Glide.with(itemView).load(product.images[0]).into(imageBestProductRvItem)
                 tvBestProductOldPrice.text = "$ ${product.price}"
                 tvBestProductName.text = product.name
             }
