@@ -50,6 +50,14 @@ class CartFragment : Fragment() {
         onPlusClick()
         onMinusClick()
         deleteDialog()
+        buttonCheckOut()
+    }
+
+    private fun buttonCheckOut() {
+        binding.buttonCheckout.setOnClickListener {
+            val action = CartFragmentDirections.actionCartFragmentToBillingFragment(totalPrice,cartAdapter.differ.currentList.toTypedArray())
+            findNavController().navigate(action)
+        }
     }
 
     private fun deleteDialog() {
@@ -91,10 +99,13 @@ class CartFragment : Fragment() {
         }
     }
 
+    var totalPrice = 0f
+
     private fun productsPrice() {
         lifecycleScope.launchWhenStarted {
             viewModel.productsPrice.collectLatest { price ->
                 price?.let {
+                    totalPrice = it
                     binding.tvTotalPrice.text = "$ $price"
                 }
             }
