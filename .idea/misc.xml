@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
@@ -34,6 +33,7 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/EasyCommerce/app/src/main/res/layout/fragment_product_details.xml" value="0.2" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/EasyCommerce/app/src/main/res/layout/fragment_register.xml" value="0.21693840579710144" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/EasyCommerce/app/src/main/res/layout/fragment_table_category.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/EasyCommerce/app/src/main/res/layout/fragment_user_account.xml" value="0.2" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/EasyCommerce/app/src/main/res/layout/product_rv_item.xml" value="0.20923913043478262" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/EasyCommerce/app/src/main/res/layout/reset_password_dialog.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/EasyCommerce/app/src/main/res/layout/reset_password_dialogue.xml" value="0.264" />
@@ -44,7 +44,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_18" default="true" project-jdk-name="18" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

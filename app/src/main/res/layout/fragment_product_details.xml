@@ -150,19 +150,21 @@
 
         <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
             android:id="@+id/buttonAddToCart"
-            style="@style/blueButtonStyle"
             android:layout_width="0dp"
-            android:layout_height="@dimen/mediumButtonHeight"
-            android:layout_marginTop="45dp"
-            android:layout_marginBottom="20dp"
+            android:layout_height="48dp"
+            android:background="@drawable/blue_background"
+            android:fontFamily="@font/poppins_light"
             android:text="Add to cart"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/linearProductPreferences"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/linearProductPreferences"
-            app:layout_constraintTop_toBottomOf="@id/linearProductPreferences"
-            app:layout_constraintVertical_bias="0.0"
-            app:spinning_bar_color="@color/white" />
+            app:layout_constraintTop_toBottomOf="@+id/linearProductPreferences"
+            android:layout_marginTop="45dp"
+            android:layout_marginBottom="20dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
