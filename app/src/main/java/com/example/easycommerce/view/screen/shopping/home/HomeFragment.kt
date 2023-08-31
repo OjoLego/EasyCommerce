@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.example.easycommerce.R
 import com.example.easycommerce.databinding.FragmentHomeBinding
 import com.example.easycommerce.view.adapter.HomeViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
@@ -52,5 +54,13 @@ class HomeFragment : Fragment() {
                 5 -> tab.text = "Furniture"
             }
         }.attach()
+
+        onSearchEtItemClick()
+    }
+
+    private fun onSearchEtItemClick() {
+        binding.searchBar.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
+        }
     }
 }

@@ -9,4 +9,5 @@ data class User(
 ){
     //empty constructor for firebase
     constructor(): this("","","","")
+
 }
